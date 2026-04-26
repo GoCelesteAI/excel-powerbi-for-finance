@@ -1,0 +1,101 @@
+product_id,product_name,category,unit_cost,list_price,units_in_stock
+SKU-10000,Brake Pad Set - K10,Brakes,169.58,239.6,84
+SKU-10001,Brake Pad Set - E5,Brakes,66.24,101.43,677
+SKU-10002,Brake Caliper - G7,Brakes,68.91,104.45,523
+SKU-10003,Brake Rotor - K10,Brakes,154.17,230.09,664
+SKU-10004,Brake Pad Set - B2,Brakes,68.71,106.0,412
+SKU-10005,Brake Rotor - D4,Brakes,180.94,249.69,682
+SKU-10006,Brake Line - E5,Brakes,170.62,234.17,523
+SKU-10007,Brake Fluid DOT4 - Std,Brakes,117.28,155.04,406
+SKU-10008,Brake Fluid DOT4 - M,Brakes,197.37,268.46,589
+SKU-10009,Brake Rotor - V19,Brakes,184.46,275.52,385
+SKU-10010,Brake Pad Set - A1,Brakes,65.78,95.7,669
+SKU-10011,Brake Caliper - V19,Brakes,52.75,74.25,531
+SKU-10012,Brake Pad Set - Q15,Brakes,69.74,101.65,200
+SKU-10013,Brake Pad Set - F6,Brakes,113.45,162.6,493
+SKU-10014,Brake Line - R16,Brakes,132.73,198.57,462
+SKU-10015,Brake Rotor - Q15,Brakes,125.3,180.93,601
+SKU-10016,Brake Fluid DOT4 - Std,Brakes,183.7,278.76,657
+SKU-10017,Brake Pad Set - W20,Brakes,188.47,271.52,530
+SKU-10018,Brake Pad Set - T18,Brakes,193.38,282.24,316
+SKU-10019,Brake Fluid DOT4 - L,Brakes,71.1,109.79,693
+SKU-10020,Timing Belt - D4,Engine,80.14,107.36,431
+SKU-10021,Air Filter - N13,Engine,147.2,220.71,413
+SKU-10022,Oil Filter - W20,Engine,300.17,458.78,800
+SKU-10023,Fuel Pump - F6,Engine,355.58,479.88,315
+SKU-10024,Head Gasket - R16,Engine,145.92,218.6,654
+SKU-10025,Head Gasket - W20,Engine,114.37,158.48,72
+SKU-10026,Air Filter - N13,,276.87,408.46,608
+SKU-10027,Air Filter - S17,Engine,157.04,209.55,732
+SKU-10028,Spark Plug Set - S17,Engine,307.35,424.52,755
+SKU-10029,Timing Belt - W20,Engine,250.81,343.98,259
+SKU-10030,Head Gasket - M12,Engine,362.0,530.12,567
+SKU-10031,Air Filter - J9,Engine,43.15,60.0,498
+SKU-10032,Spark Plug Set - A1,Engine,196.09,265.26,721
+SKU-10033,Timing Belt - J9,Engine,345.9,477.92,745
+SKU-10034,Spark Plug Set - C3,Engine,373.07,563.77,798
+SKU-10035,Spark Plug Set - D4,Engine,378.39,504.12,360
+SKU-10036,Oil Filter - V19,Engine,307.22,405.54,462
+SKU-10037,Head Gasket - J9,Engine,322.11,444.59,566
+SKU-10038,Timing Belt - D4,Engine,339.0,491.85,430
+SKU-10039,Oil Filter - W20,Engine,169.62,226.22,464
+SKU-10040,Fuel Pump - P14,Engine,113.94,166.61,568
+SKU-10041,Head Gasket - G7,Engine,46.57,64.14,44
+SKU-10042,Battery 12V - M,Electrical,67.15,98.01,683
+SKU-10043,Starter Motor - B2,Electrical,390.94,596.35,611
+SKU-10044,Alternator - P14,Electrical,268.11,400.29,301
+SKU-10045,O2 Sensor - F6,Electrical,335.93,494.59,24
+SKU-10046,Starter Motor - L11,Electrical,143.2,220.42,73
+SKU-10047,O2 Sensor - M12,Electrical,75.91,117.21,220
+SKU-10048,MAF Sensor - W20,Electrical,205.29,278.0,41
+SKU-10049,Starter Motor - F6,Electrical,349.91,502.96,605
+SKU-10050,Battery 12V - XL,Electrical,45.8,61.03,204
+SKU-10051,Starter Motor - J9,Electrical,186.6,259.7,626
+SKU-10052,Battery 12V - M,Electrical,150.51,214.42,376
+SKU-10053,MAF Sensor - T18,Electrical,35.09,48.9,65
+SKU-10054,MAF Sensor - W20,Electrical,57.09,76.38,62
+SKU-10055,O2 Sensor - E5,Electrical,181.11,250.63,685
+SKU-10056,O2 Sensor - V19,Electrical,196.13,294.12,704
+SKU-10057,Battery 12V - XL,Electrical,133.68,191.15,548
+SKU-10058,Strut Assembly - W20,Suspension,144.51,202.37,593
+SKU-10059,Coil Spring - B2,Suspension,71.35,109.44,156
+SKU-10060,Strut Assembly - W20,Suspension,255.64,392.08,73
+SKU-10061,Strut Assembly - V19,Suspension,223.72,297.48,415
+SKU-10062,Bushing Kit - A1,Suspension,116.5,163.61,606
+SKU-10063,Coil Spring - M12,Suspension,66.8,91.52,317
+SKU-10064,Bushing Kit - D4,Suspension,59.64,82.15,484
+SKU-10065,Shock Absorber - N13,Suspension,185.13,264.22,567
+SKU-10066,Strut Assembly - K10,Suspension,162.91,221.58,494
+SKU-10067,Strut Assembly - J9,Suspension,269.9,372.57,336
+SKU-10068,Shock Absorber - F6,Suspension,158.52,226.69,162
+SKU-10069,Control Arm - L11,Suspension,59.6,79.89,595
+SKU-10070,Strut Assembly - W20,Suspension,75.12,112.75,291
+SKU-10071,Coil Spring - R16,Suspension,61.89,93.59,653
+SKU-10072,Shock Absorber - S17,Suspension,96.09,144.52,602
+SKU-10073,Bushing Kit - L11,Suspension,193.98,263.18,336
+SKU-10074,Front Bumper - V19,Body,435.89,597.88,391
+SKU-10075,Headlight Assembly - V19,Body,256.25,371.8,203
+SKU-10076,Side Mirror - E5,Body,468.89,653.28,506
+SKU-10077,Side Mirror - S17,Body,225.6,322.27,783
+SKU-10078,Headlight Assembly - W20,Body,176.91,248.98,798
+SKU-10079,Side Mirror - C3,Body,508.6,735.99,206
+SKU-10080,Headlight Assembly - F6,Body,111.07,147.63,687
+SKU-10081,Headlight Assembly - M12,Body,190.15,265.89,163
+SKU-10082,Wiper Blade - M,Body,255.12,361.3,336
+SKU-10083,Front Bumper - S17,,250.17,332.45,230
+SKU-10084,Side Mirror - H8,Body,330.09,507.07,274
+SKU-10085,Wiper Blade - XL,Body,376.26,516.97,737
+SKU-10086,Seat Cover - M12,Accessories,60.64,88.79,508
+SKU-10087,Floor Mat Set - B2,Accessories,37.49,53.0,794
+SKU-10088,Seat Cover - F6,Accessories,46.09,68.82,274
+SKU-10089,Steering Wheel Cover - J9,Accessories,39.05,56.08,396
+SKU-10090,Cargo Liner - L11,Accessories,20.33,30.06,226
+SKU-10091,Floor Mat Set - M12,Accessories,65.28,91.67,405
+SKU-10092,Seat Cover - R16,Accessories,68.21,104.85,650
+SKU-10093,Cargo Liner - F6,Accessories,48.34,69.93,544
+SKU-10094,Cargo Liner - V19,Accessories,78.58,115.11,266
+SKU-10095,Seat Cover - G7,Accessories,82.24,117.24,364
+SKU-10096,Floor Mat Set - H8,Accessories,30.38,43.28,240
+SKU-10097,Steering Wheel Cover - N13,Accessories,73.51,98.24,749
+SKU-10098,Cargo Liner - J9,Accessories,38.06,54.19,254
+SKU-10099,Cargo Liner - S17,Accessories,57.73,79.15,777

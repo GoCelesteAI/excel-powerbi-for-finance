@@ -1,0 +1,31 @@
+vendor_id,vendor_name,country,payment_terms,is_active
+VEND-001,BOSCH INDUSTRIES,UK,2/10 Net 30,Y
+VEND-002,delphi gmbh,Germany,Net 45,Y
+VEND-003,KYB Ltd.,US,Net 30,Y
+VEND-004,Gates Group,Germany,Net 60,Y
+VEND-005,SCHAEFFLER CORP.,Germany,2/10 Net 30,Y
+VEND-006,ACDelco Manufacturing,Germany,Net 45,Y
+VEND-007,castrol ltd.,UK,Net 30,Y
+VEND-008,Michelin Group,Italy,Net 60,Y
+VEND-009,Delphi Manufacturing,US,Net 30,Y
+VEND-010,Raybestos Group,US,Net 45,Y
+VEND-011,BorgWarner Systems,US,Net 60,Y
+VEND-012,Hella Group,Italy,2/10 Net 30,Y
+VEND-013,Delphi Inc.,UK,Net 60,Y
+VEND-014,Sachs Systems,Italy,Net 60,Y
+VEND-015,Mobil Inc.,Germany,2/10 Net 30,Y
+VEND-016,Champion GmbH,UK,2/10 Net 30,Y
+VEND-017,NGK Group,Japan,Net 45,Y
+VEND-018,Mahle Industries,Germany,Net 60,Y
+VEND-019,KYB Systems,US,Net 30,Y
+VEND-020,BorgWarner Group,US,2/10 Net 30,Y
+VEND-021,Raybestos Corp.,UK,Net 45,Y
+VEND-022,Akebono Group,Italy,Net 45,Y
+VEND-023,Akebono GmbH,UK,Net 30,Y
+VEND-024,GOODYEAR INDUSTRIES,Japan,Net 60,Y
+VEND-025,Sachs Group,UK,Net 30,Y
+VEND-026,Wagner Ltd.,Italy,Net 30,Y
+VEND-027,NGK Manufacturing,US,2/10 Net 30,Y
+VEND-028,DAYCO CORP.,UK,Net 45,Y
+VEND-029,Lear Group,Japan,Net 45,Y
+VEND-030,Monroe GmbH,US,2/10 Net 30,Y

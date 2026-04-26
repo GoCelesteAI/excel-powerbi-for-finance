@@ -1,0 +1,51 @@
+customer_id,customer_name,country,region,industry,credit_limit,payment_terms,is_active
+CUST-001,Coastal Logistics,US,Northeast,Fleet Operator,25000,Due on Receipt,Y
+CUST-002,Phoenix Fleet Services,UK,England,Fleet Operator,25000,Net 60,Y
+CUST-003,King Garage,Canada,Ontario,Auto Repair,250000,Due on Receipt,Y
+CUST-004,Granite Trade,US,Northeast,Wholesale Distributor,25000,Net 60,Y
+CUST-005,  Ashford Auto Repair,US,Midwest,Auto Repair,75000,Due on Receipt,Y
+CUST-006,Northstar Auto Repair,US,Northeast,Auto Repair,250000,Net 60,Y
+CUST-007,Eastgate Wholesale  ,Canada,Alberta,Wholesale Distributor,100000,Due on Receipt,Y
+CUST-008,Silverline Service Center,UK,Scotland,Auto Repair,10000,Net 30,Y
+CUST-009,Wellington Auto Repair,Germany,NRW,Auto Repair,10000,Net 30,Y
+CUST-010,Ironclad Distributors,US,Midwest,Wholesale Distributor,150000,Net 30,Y
+CUST-011,Bayside Fleet Services,USA,Midwest,Fleet Operator,75000,Net 30,Y
+CUST-012,Acme Auto Repair  ,US,Midwest,Auto Repair,150000,Due on Receipt,Y
+CUST-013,Brookhaven Logistics,Canada,Ontario,Fleet Operator,25000,Net 30,Y
+CUST-014,Midwest Garage,US,West,Auto Repair,250000,Net 30,Y
+CUST-015,Sterling Auto Supply,Canada,British Columbia,Retail Chain,50000,Net 30,Y
+CUST-016,  Stellar Auto Supply  ,Germany,Hamburg,Retail Chain,100000,Net 30,Y
+CUST-017,Acme Auto Repair 2,US,West,Auto Repair,250000,Net 30,Y
+CUST-018,Eastgate Wholesale 2,Great Britain,Wales,Wholesale Distributor,10000,Net 30,Y
+CUST-019,Westwind Transport,US,West,Fleet Operator,75000,Due on Receipt,Y
+CUST-020,Beacon Distributors,US,Northeast,Wholesale Distributor,10000,Net 30,Y
+CUST-021,Frontier Delivery,US,Midwest,Fleet Operator,25000,Due on Receipt,Y
+CUST-022,Highland Delivery,us,West,Fleet Operator,50000,Due on Receipt,Y
+CUST-023,Goldline Auto Supply  ,United States of America,Northeast,Retail Chain,50000,Net 30,Y
+CUST-024,Apex Fleet Services  ,Germany,Bavaria,Fleet Operator,100000,Net 45,Y
+CUST-025,Goldline Logistics,UK,Scotland,Fleet Operator,100000,Net 45,Y
+CUST-026,Rockport Fleet Services,US,South,Fleet Operator,50000,Net 60,Y
+CUST-027,Goldline Service Center,US,South,Auto Repair,250000,Net 45,Y
+CUST-028,Continental Auto Supply,UK,Scotland,Retail Chain,10000,Net 30,Y
+CUST-029,Cardinal Auto Supply,USA,Midwest,Retail Chain,25000,Net 45,Y
+CUST-030,Reliable Auto Care  ,US,Midwest,Auto Repair,10000,Net 60,Y
+CUST-031,Midwest Parts Plus  ,US,South,Retail Chain,50000,Net 60,Y
+CUST-032,Pacific Trade,US,South,Wholesale Distributor,75000,Net 30,Y
+CUST-033,Beacon Parts Plus,USA,Midwest,Retail Chain,50000,Net 30,Y
+CUST-034,Atlantic Auto Care,US,West,Auto Repair,100000,Due on Receipt,Y
+CUST-035,Stellar Wholesale,Canada,British Columbia,Wholesale Distributor,25000,Net 60,Y
+CUST-036,Oxford Transport,US,Northeast,Fleet Operator,100000,Net 30,Y
+CUST-037,Oakwood Transport,US,Northeast,Fleet Operator,50000,Net 30,Y
+CUST-038,Vanguard Auto Parts,US,South,Retail Chain,75000,Net 45,Y
+CUST-039,  Heritage Logistics,France,Île-de-France,Fleet Operator,150000,Net 60,Y
+CUST-040,Bluefield Garage,UK,England,Auto Repair,100000,Net 30,Y
+CUST-041,Oxford Transport 2,Canada,Quebec,Fleet Operator,75000,Due on Receipt,Y
+CUST-042,Bluefield Auto Parts,DE,Bavaria,Retail Chain,25000,Net 60,Y
+CUST-043,Greenfield Garage,US,West,Auto Repair,75000,Net 30,Y
+CUST-044,King Auto Supply,US,South,Retail Chain,50000,Net 45,Y
+CUST-045,Coastal Fleet Services,Canada,Quebec,Fleet Operator,10000,Net 30,Y
+CUST-046,Oxford Service Center,US,Midwest,Auto Repair,10000,Net 45,Y
+CUST-047,Silverline Trade,US,West,Wholesale Distributor,100000,Net 30,Y
+CUST-048,Oxford Delivery,Canada,Quebec,Fleet Operator,100000,Net 45,Y
+CUST-049,Express Distributors  ,Germany,Berlin,Wholesale Distributor,100000,Due on Receipt,Y
+CUST-050,Northstar Delivery,US,Midwest,Fleet Operator,150000,Net 30,Y
