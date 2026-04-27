@@ -1,0 +1,56 @@
+// AtlasParts Calendar Table — Episode 9 of Excel & Power BI for Finance.
+//
+// Paste this into Power BI Desktop:
+//   Modeling tab → New Table → paste the block below into the formula bar.
+// Then: Modeling tab → Mark as Date Table → pick the [Date] column.
+// Without "Mark as Date Table", DAX time intelligence (TOTALYTD,
+// SAMEPERIODLASTYEAR, etc.) won't work correctly on this Calendar.
+
+Calendar =
+ADDCOLUMNS (
+    CALENDAR ( DATE ( 2020, 1, 1 ), DATE ( 2026, 12, 31 ) ),
+    "Year",        YEAR ( [Date] ),
+    "Quarter",     "Q" & FORMAT ( QUARTER ( [Date] ), "0" ),
+    "Month",       MONTH ( [Date] ),
+    "MonthName",   FORMAT ( [Date], "MMM" ),
+    "FiscalYear",
+        IF (
+            MONTH ( [Date] ) >= 4,
+            YEAR ( [Date] ) + 1,
+            YEAR ( [Date] )
+        ),
+    "FiscalQuarter",
+        "FQ" & FORMAT (
+            SWITCH (
+                TRUE (),
+                MONTH ( [Date] ) IN { 4, 5, 6 },   1,
+                MONTH ( [Date] ) IN { 7, 8, 9 },   2,
+                MONTH ( [Date] ) IN { 10, 11, 12 }, 3,
+                4
+            ),
+            "0"
+        ),
+    "DayOfWeek",   FORMAT ( [Date], "dddd" ),
+    "WeekdayNum",  WEEKDAY ( [Date], 2 ),
+    "IsWeekend",   IF ( WEEKDAY ( [Date], 2 ) > 5, "Y", "N" )
+)
+
+
+// ── After loading the Calendar Table, draw these four relationships in Model view ──
+//
+//   gl_journal[customer_id]   → customers[customer_id]            (1:* · single)
+//   gl_journal[product_id]    → products[product_id]              (1:* · single)
+//   gl_journal[account_code]  → chart_of_accounts[account_code]   (1:* · single)
+//   gl_journal[posting_date]  → Calendar[Date]                    (1:* · single)
+//
+// Power BI will auto-detect most on Close & Apply if column names match,
+// but always double-check Cardinality + Filter direction in the relationship
+// properties pane.
+//
+// Smell tests:
+//   - Many-to-many cardinality → duplicate key in the dim. Find and remove it.
+//   - Both-direction filters → ambiguity in DAX. Default to single, flip only
+//     when a specific measure visibly needs the reverse flow.
+//   - Inactive relationship (dashed line) → there's already an active path;
+//     either delete the duplicate or activate this one with USERELATIONSHIP
+//     inside a CALCULATE.
