@@ -1,0 +1,21 @@
+country,country_name,region
+US,United States,North America
+CA,Canada,North America
+MX,Mexico,North America
+UK,United Kingdom,Europe
+DE,Germany,Europe
+FR,France,Europe
+IT,Italy,Europe
+ES,Spain,Europe
+NL,Netherlands,Europe
+SE,Sweden,Europe
+JP,Japan,Asia Pacific
+SG,Singapore,Asia Pacific
+AU,Australia,Asia Pacific
+KR,South Korea,Asia Pacific
+HK,Hong Kong,Asia Pacific
+BR,Brazil,Latin America
+AR,Argentina,Latin America
+ZA,South Africa,Middle East & Africa
+AE,United Arab Emirates,Middle East & Africa
+IL,Israel,Middle East & Africa
