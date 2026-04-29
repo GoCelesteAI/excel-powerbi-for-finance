@@ -1,0 +1,100 @@
+// AtlasParts — Episode 11: Time Intelligence
+// =====================================================================
+// Five measures plus one variant covering the canonical time-intelligence
+// patterns:
+//   - TOTALYTD (year-to-date, optionally fiscal)
+//   - SAMEPERIODLASTYEAR (prior-year YTD comparison)
+//   - DATEADD (general shift — last month, last quarter, etc.)
+//   - DIVIDE (the divide-by-zero guard for percent variance)
+//
+// Prerequisites: AtlasParts star schema from Episode 9 with the Calendar
+// Table MARKED AS DATE TABLE. Without that one click in Modeling →
+// Mark as Date Table, every measure below silently returns wrong numbers.
+
+// ---------------------------------------------------------------------
+// 1. Revenue YTD — running total from start of calendar year.
+// ---------------------------------------------------------------------
+Revenue YTD =
+TOTALYTD([Total Revenue], Calendar[Date])
+
+
+// ---------------------------------------------------------------------
+// 2. Revenue YTD (Fiscal) — same thing, but for a June fiscal year.
+//    The third arg is the last day of the fiscal year as "MM-DD".
+//    Change "06-30" to your treasurer's chosen year-end.
+// ---------------------------------------------------------------------
+Revenue YTD (Fiscal) =
+TOTALYTD([Total Revenue], Calendar[Date], "06-30")
+
+
+// ---------------------------------------------------------------------
+// 3. Revenue YTD PY — prior-year YTD, the second line on the canonical
+//    two-line chart. SAMEPERIODLASTYEAR shifts the date filter back
+//    exactly one year, then re-evaluates the YTD measure under that
+//    shifted context.
+// ---------------------------------------------------------------------
+Revenue YTD PY =
+CALCULATE(
+    [Revenue YTD],
+    SAMEPERIODLASTYEAR(Calendar[Date])
+)
+
+
+// ---------------------------------------------------------------------
+// 4. Revenue PM — last month's revenue. DATEADD walks the calendar
+//    using actual dates, so January's "previous month" lands on
+//    last year's December (no off-by-one zero on the first month).
+// ---------------------------------------------------------------------
+Revenue PM =
+CALCULATE(
+    [Total Revenue],
+    DATEADD(Calendar[Date], -1, MONTH)
+)
+
+
+// ---------------------------------------------------------------------
+// 5. Revenue MoM Variance — straightforward arithmetic on top of PM.
+// ---------------------------------------------------------------------
+Revenue MoM Variance =
+[Total Revenue] - [Revenue PM]
+
+
+// ---------------------------------------------------------------------
+// 6. Revenue MoM Variance % — DIVIDE guards against the case where
+//    last month was zero (a new product launched mid-quarter, a region
+//    that came online in March). Plain `/` would return Infinity which
+//    the visual renders as a dash. Third arg = fallback (here, 0).
+// ---------------------------------------------------------------------
+Revenue MoM Variance % =
+DIVIDE(
+    [Total Revenue] - [Revenue PM],
+    [Revenue PM],
+    0
+)
+
+
+// ---------------------------------------------------------------------
+// Bonus — Revenue % of Year. CALCULATE + ALL strips date filters from
+// the calendar so the denominator is the whole-year total. Useful when
+// you want a "share of year" trend on a card.
+// ---------------------------------------------------------------------
+Revenue % of Year =
+DIVIDE(
+    [Revenue YTD],
+    CALCULATE([Total Revenue], ALL(Calendar)),
+    0
+)
+
+
+// ---------------------------------------------------------------------
+// Homework
+//   1. Drop Revenue YTD and Revenue YTD PY on a line chart with
+//      Calendar[Month] on the x-axis. Verify the two-line view.
+//   2. Drop Revenue MoM Variance % on a KPI card. Apply conditional
+//      formatting: green for positive, red for negative.
+//   3. Try DATEADD with -1, QUARTER for QoQ. Then -7, DAY for last
+//      week. Both work because the calendar Table is contiguous.
+//   4. Test the year-boundary case: filter to January and confirm
+//      Revenue PM lands on last year's December (not blank, not zero).
+//      If it's blank: re-check Mark as Date Table.
+// ---------------------------------------------------------------------
