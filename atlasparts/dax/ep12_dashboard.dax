@@ -1,0 +1,144 @@
+// AtlasParts — Episode 12: Finance Dashboard, End-to-End
+// =====================================================================
+// The consolidated measure list for the Q3 FY26 board pack. Most measures
+// were defined in Episodes 10 and 11; this file is the canonical reference
+// listing for the dashboard build, plus the new measures introduced for
+// the season finale (OPEX, EBITDA, the AR aging bucket calculated column,
+// and the budget-vs-actual variance pattern).
+
+// ---------------------------------------------------------------------
+// Carried over from Episode 10 (DAX Fundamentals)
+// ---------------------------------------------------------------------
+Total Revenue =
+SUMX(
+    sales_order_lines,
+    sales_order_lines[quantity] * sales_order_lines[unit_price]
+)
+
+Total Cost =
+SUM(gl_journal[cogs_amount])
+
+Gross Margin % =
+DIVIDE(
+    [Total Revenue] - [Total Cost],
+    [Total Revenue],
+    0
+)
+
+
+// ---------------------------------------------------------------------
+// Carried over from Episode 11 (Time Intelligence)
+// ---------------------------------------------------------------------
+Revenue YTD =
+TOTALYTD([Total Revenue], 'Calendar'[Date])
+
+Revenue YTD PY =
+CALCULATE(
+    [Revenue YTD],
+    SAMEPERIODLASTYEAR('Calendar'[Date])
+)
+
+
+// ---------------------------------------------------------------------
+// New for Episode 12 — OPEX and EBITDA on the KPI strip
+// ---------------------------------------------------------------------
+OPEX =
+CALCULATE(
+    SUM(gl_journal[debit_amount]),
+    chart_of_accounts[account_class] = "OPEX"
+)
+
+EBITDA =
+[Total Revenue] - [Total Cost] - [OPEX]
+
+
+// ---------------------------------------------------------------------
+// AR aging bucket — calculated column on the AR fact
+// =====================================================
+// Intrinsic to the row; doesn't depend on filters; you'll filter and
+// group by it constantly. Calculated column is the right choice.
+// Lives ON ar_invoices, not as a measure.
+// ---------------------------------------------------------------------
+AR Bucket =
+SWITCH(
+    TRUE(),
+    [Days Outstanding] <= 0,  "Current",
+    [Days Outstanding] <= 30, "1-30",
+    [Days Outstanding] <= 60, "31-60",
+    [Days Outstanding] <= 90, "61-90",
+                              "90+"
+)
+
+// AR Outstanding total — measure that pairs with the bucket column.
+AR Outstanding =
+SUM(ar_invoices[outstanding_amount])
+
+
+// ---------------------------------------------------------------------
+// Budget vs Actual — quarterly variance with DIVIDE-guard
+// ---------------------------------------------------------------------
+Budget =
+SUM(budget[budget_amount])
+
+Actual =
+[Total Revenue]
+
+Variance % =
+DIVIDE(
+    [Actual] - [Budget],
+    [Budget],
+    0
+)
+
+
+// ---------------------------------------------------------------------
+// The complete dashboard measure list (drop these on the canvas)
+// ---------------------------------------------------------------------
+//   KPI strip:        [Revenue YTD], [Gross Margin %], [OPEX], [EBITDA]
+//                     (each with conditional formatting on the value colour:
+//                      green ▲ for positive YoY delta, red ▼ for negative)
+//
+//   Trend chart:      [Revenue YTD] + [Revenue YTD PY] on Y-axis,
+//                     'Calendar'[Month] on X-axis
+//
+//   Region chart:     [Gross Margin %] on horizontal bar X-axis,
+//                     customers[region] on Y-axis, sorted descending
+//
+//   AR aging:         [AR Outstanding] on column chart Y-axis,
+//                     ar_invoices[AR Bucket] on X-axis (calculated column)
+//
+//   Budget vs Actual: TableVisual with rows = 'Calendar'[Quarter],
+//                     columns = [Budget], [Actual], [Variance %]
+//                     conditional formatting on Variance % column
+// ---------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------
+// Cross-filter behaviour
+// =======================
+// Cross-filter is automatic when visuals share a model. No DAX changes.
+// The relationships in the star schema (Episode 9) propagate filters from
+// the dimension that the user clicked through to the fact, and every
+// visual that's downstream of that fact responds.
+//
+// One control to know: Format → Edit interactions. Per visual, you can
+// set how it responds to a click on another visual: Filter (default),
+// Highlight, or None. For a finance board, default Filter behaviour is
+// almost always what you want.
+// ---------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------
+// Homework
+//   1. Drop all four KPI cards across the top of a blank Power BI page.
+//      Configure conditional formatting on the value colour for each.
+//   2. Build the YTD vs PY line chart. Set the PY line to dashed grey.
+//   3. Build the Margin by Region horizontal bar. Sort descending.
+//   4. Add the AR aging column chart. Verify the calculated column is
+//      doing the bucket assignment (not a measure).
+//   5. Add the Budget vs Actual table with conditional formatting on
+//      the Variance % column (green for over budget, red for under).
+//   6. Click any column in the revenue chart; verify every other visual
+//      filters. If one doesn't, check Format → Edit interactions.
+//   7. Publish to Power BI Service. Set up a daily scheduled refresh.
+// ---------------------------------------------------------------------
