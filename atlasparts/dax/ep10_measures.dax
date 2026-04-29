@@ -1,0 +1,98 @@
+// AtlasParts — Episode 10: DAX Fundamentals
+// =====================================================================
+// Six measures that demonstrate every concept from Episode 10:
+//   - SUM (column reference)
+//   - measure-references-measure
+//   - CALCULATE (add filter)
+//   - CALCULATE + ALL (remove filter)
+//   - SUMX (row-wise iterator)
+//   - VAR / RETURN (readable, single-eval, divide-by-zero safe)
+//
+// Paste each block into a New Measure in Power BI Desktop. The model
+// must have the AtlasParts star from Episode 9: gl_journal (fact),
+// customers / products / accounts / Calendar (dims).
+
+// ---------------------------------------------------------------------
+// 1. Total Debits — the simplest possible measure: a column reference.
+// ---------------------------------------------------------------------
+Total Debits =
+SUM(gl_journal[debit_amount])
+
+
+// ---------------------------------------------------------------------
+// 2. Total Credits — same shape, on the other side of the journal.
+// ---------------------------------------------------------------------
+Total Credits =
+SUM(gl_journal[credit_amount])
+
+
+// ---------------------------------------------------------------------
+// 3. Net Movement — a measure that references other measures.
+//    Square brackets reference an existing measure by name.
+// ---------------------------------------------------------------------
+Net Movement =
+[Total Debits] - [Total Credits]
+
+
+// ---------------------------------------------------------------------
+// 4. Total Revenue — SUMX iterator.
+//    AtlasParts sales-line table has quantity and unit_price as
+//    separate columns. SUMX walks every row, multiplies in place,
+//    sums the per-row results. No new column stored in Vertipaq.
+// ---------------------------------------------------------------------
+Total Revenue =
+SUMX(
+    sales_order_lines,
+    sales_order_lines[quantity] * sales_order_lines[unit_price]
+)
+
+
+// ---------------------------------------------------------------------
+// 5. Revenue from New Customers — CALCULATE adds a filter on top
+//    of whatever the user has already filtered. The customers[is_new]
+//    flag column is added to the customers dim in Episode 9.
+// ---------------------------------------------------------------------
+Revenue from New Customers =
+CALCULATE(
+    [Total Revenue],
+    customers[is_new] = "Y"
+)
+
+
+// ---------------------------------------------------------------------
+// 6. Gross Margin % — VAR / RETURN with divide-by-zero safety.
+//    Each VAR is evaluated once, even when Revenue is referenced
+//    twice (in Margin and as DIVIDE's denominator).
+// ---------------------------------------------------------------------
+Gross Margin % =
+VAR Revenue = [Total Revenue]
+VAR Cost    = [Total Cost]
+VAR Margin  = Revenue - Cost
+RETURN
+    DIVIDE(Margin, Revenue, 0)
+
+
+// ---------------------------------------------------------------------
+// Bonus — Revenue % of Total.
+//    Pattern: filtered measure / unfiltered measure.
+//    ALL(customers) strips every filter from the customers dim,
+//    no matter what the slicer says. Ratio = filtered ÷ unfiltered.
+// ---------------------------------------------------------------------
+Revenue % of Total =
+DIVIDE(
+    [Total Revenue],
+    CALCULATE([Total Revenue], ALL(customers)),
+    0
+)
+
+
+// ---------------------------------------------------------------------
+// Homework
+//   1. Drop each of the six measures on its own card visual.
+//   2. Add a slicer for customers[region]. Click around. Watch the
+//      cards react — except 'Revenue % of Total', which always sums
+//      to 100% across all visible regions because of the ALL.
+//   3. Try writing 'Revenue from Existing Customers' (is_new = "N")
+//      following the same CALCULATE pattern. Verify the two add up
+//      to [Total Revenue].
+// ---------------------------------------------------------------------
